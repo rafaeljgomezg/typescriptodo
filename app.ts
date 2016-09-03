@@ -1,38 +1,57 @@
-var container = document.getElementById('container');
+// Destructuring Arrays
 
-function Counter(el) {
+var array = [123, "Pick up a dry cleaning", false];
 
-    this.count = 0;
+var [id, action, state] = array;
 
-    el.innerHTML = this.count;
-// 
-    el.addEventListener('click', 
-        
-        /* THIS WAY WE DEFINE A FUNCTION IN THE OLD WAY (wrong way)
-        function(){
-            this.count += 1; // In this case "THIS" referes to global not the defined in the function, so thi is a mistake
-            el.innerHTML=this.count;
-        });*/
 
-        // tHE RIGHT WAY TO DO IT ES6
-        () => {
-            this.count += 1;
-            el.innerHTML = this.count;
-        });
 
-    
+//Destructuring Objects
+
+let a=5;
+let b=6;
+console.log(a,b);
+
+[a,b] = [b,a];
+console.log(a,b);
+
+
+var todo = {
+    id: 123,
+    title: "Pick up a cleaning",
+    completed: false
 }
 
-new Counter(container);
+var { id: any, title, completed } = todo;
 
-// FIRST WAY TO SHOW ARROW FUNCTION
-var filtered = [1,2,3].filter( (x) => {
-        return x > 0}
-    );
+var {completed , id:any, title} = todo;
 
-// SECOND WAY TO SHOW ARROW FUNCTION
-var filtered = [1,2,3].filter( x => { //Because it has one parameter doesn't need parenthesis'
-        return x > 0}
-    );
-// THIRD WAY TO SHOW ARROW FUNCTION
-var filtered = [1,2,3].filter( x => x > 0 ); //just one line arrow function
+
+
+function countdown1 (initial, final=0, interval = 5){
+    var current = initial;
+    while (current > final) {
+        console.log(current);
+        current -= interval;
+    }
+}
+
+countdown1(45,0,15);
+
+function countdown ({   
+        initial, 
+        final: final=0, 
+        interval: interval = 1,
+        initial: current
+    })
+    {
+    while (current > final) {
+        console.log(current);
+        current -= interval;
+    }
+}
+
+countdown({initial:45, interval:15});
+
+
+
