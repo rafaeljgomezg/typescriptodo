@@ -1,57 +1,71 @@
-// Destructuring Arrays
+//Classic way to define a function with some values
 
-var array = [123, "Pick up a dry cleaning", false];
-
-var [id, action, state] = array;
-
-
-
-//Destructuring Objects
-
-let a=5;
-let b=6;
-console.log(a,b);
-
-[a,b] = [b,a];
-console.log(a,b);
-
-
-var todo = {
-    id: 123,
-    title: "Pick up a cleaning",
-    completed: false
-}
-
-var { id: any, title, completed } = todo;
-
-var {completed , id:any, title} = todo;
-
-
-
-function countdown1 (initial, final=0, interval = 5){
-    var current = initial;
-    while (current > final) {
-        console.log(current);
-        current -= interval;
+function add(){
+    var values = Array.prototype.splice.call(arguments,[1]),
+    total=0;
+    for (var value of values){
+        total  += value;   
     }
+    return total;
 }
 
-countdown1(45,0,15);
 
-function countdown ({   
-        initial, 
-        final: final=0, 
-        interval: interval = 1,
-        initial: current
-    })
-    {
-    while (current > final) {
-        console.log(current);
-        current -= interval;
+//ES6 way
+
+function add1 (...values){
+ var total=0;
+    for (var value of values){
+        total  += value;   
     }
+    return total;
 }
 
-countdown({initial:45, interval:15});
+
+//Doing some calculation
+
+function calculate (...values){
+ var total=0;
+    for (var value of values){
+        total  += value;
+    }
+    return total;
+}
+
+console.log(calculate(1,2,3,4,5,6));
 
 
+//Doing calcalation with some options
 
+function calculate1 (action,...values){
+ var total=0;
+    for (var value of values){
+        switch (action){
+            case 'add' :
+                total  += value;
+                break;
+            case 'substract':
+                total  -= value;
+                break;
+        }
+    }
+    return total;
+}
+
+console.log(calculate1('add', 1,2,3,4,5,6));
+
+//Inserting an array inside another array
+var source = [3,4,5];
+var dest = [1,2,...source,6,7,8];
+console.log(dest);
+
+//another example to concatenate two arrays (ES5 sintax)
+var list = [1,2,3];
+var toAdd = [4,5,6];
+Array.prototype.push.apply(list,toAdd);
+console.log(list);
+
+//Concatenate ES6 sintax
+var list = [1,2,3];
+var toAdd = [4,5,6];
+list.push(...toAdd);
+console.log(list);

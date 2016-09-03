@@ -1,35 +1,71 @@
-// Destructuring Arrays
-var array = [123, "Pick up a dry cleaning", false];
-var id = array[0], action = array[1], state = array[2];
-//Destructuring Objects
-var a = 5;
-var b = 6;
-console.log(a, b);
-_a = [b, a], a = _a[0], b = _a[1];
-console.log(a, b);
-var todo = {
-    id: 123,
-    title: "Pick up a cleaning",
-    completed: false
-};
-var any = todo.id, title = todo.title, completed = todo.completed;
-var completed = todo.completed, any = todo.id, title = todo.title;
-function countdown1(initial, final, interval) {
-    if (final === void 0) { final = 0; }
-    if (interval === void 0) { interval = 5; }
-    var current = initial;
-    while (current > final) {
-        console.log(current);
-        current -= interval;
+//Classic way to define a function with some values
+function add() {
+    var values = Array.prototype.splice.call(arguments, [1]), total = 0;
+    for (var _i = 0, values_1 = values; _i < values_1.length; _i++) {
+        var value = values_1[_i];
+        total += value;
     }
+    return total;
 }
-countdown1(45, 0, 15);
-function countdown(_a) {
-    var initial = _a.initial, _b = _a.final, final = _b === void 0 ? 0 : _b, _c = _a.interval, interval = _c === void 0 ? 1 : _c, current = _a.initial;
-    while (current > final) {
-        console.log(current);
-        current -= interval;
+//ES6 way
+function add1() {
+    var values = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        values[_i - 0] = arguments[_i];
     }
+    var total = 0;
+    for (var _a = 0, values_2 = values; _a < values_2.length; _a++) {
+        var value = values_2[_a];
+        total += value;
+    }
+    return total;
 }
-countdown({ initial: 45, interval: 15 });
-var _a;
+//Doing some calculation
+function calculate() {
+    var values = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        values[_i - 0] = arguments[_i];
+    }
+    var total = 0;
+    for (var _a = 0, values_3 = values; _a < values_3.length; _a++) {
+        var value = values_3[_a];
+        total += value;
+    }
+    return total;
+}
+console.log(calculate(1, 2, 3, 4, 5, 6));
+//Doing calcalation with some options
+function calculate1(action) {
+    var values = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        values[_i - 1] = arguments[_i];
+    }
+    var total = 0;
+    for (var _a = 0, values_4 = values; _a < values_4.length; _a++) {
+        var value = values_4[_a];
+        switch (action) {
+            case 'add':
+                total += value;
+                break;
+            case 'substract':
+                total -= value;
+                break;
+        }
+    }
+    return total;
+}
+console.log(calculate1('add', 1, 2, 3, 4, 5, 6));
+//Inserting an array inside another array
+var source = [3, 4, 5];
+var dest = [1, 2].concat(source, [6, 7, 8]);
+console.log(dest);
+//another example to concatenate two arrays (ES5 sintax)
+var list = [1, 2, 3];
+var toAdd = [4, 5, 6];
+Array.prototype.push.apply(list, toAdd);
+console.log(list);
+//Concatenate ES6 sintax
+var list = [1, 2, 3];
+var toAdd = [4, 5, 6];
+list.push.apply(list, toAdd);
+console.log(list);
