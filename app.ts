@@ -1,14 +1,20 @@
 var container = document.getElementById('container');
+var prueba = document.getElementById('prueba');
+var test = true; // it is evaluated directly in the prueba.innerHTML expression
 
-function countdown(initial, final = 0, interval = 1) {
+var todo = {
+    id: 123,
+    name: 'Pick up drycleaning',
+    completed: true // it is evaluated directly in the container.innerHTML expression
+};
 
-    var current = initial;
+container.innerHTML = `
+<div todo='${todo.name}' class="list-group-item}">
+    <i class="${todo.completed ? "" : "hidden"} text-success glyphicon glyphicon-ok"></i>
+    <span class="name">${todo.name}</span>
+</div>
+`
 
-    while (current > final) {
-        container.innerHTML = current;
-        current -= interval;
-    }
-
-}
-
-countdown(10,5,8);
+prueba.innerHTML = ` 
+ He named his car <i class ='${test ? "" : "hidden"} text-success '>The lightning</i>, because it was very fast.
+`

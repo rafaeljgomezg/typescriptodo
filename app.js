@@ -1,11 +1,10 @@
 var container = document.getElementById('container');
-function countdown(initial, final, interval) {
-    if (final === void 0) { final = 0; }
-    if (interval === void 0) { interval = 1; }
-    var current = initial;
-    while (current > final) {
-        container.innerHTML = current;
-        current -= interval;
-    }
-}
-countdown(10, 5, 8);
+var prueba = document.getElementById('prueba');
+var test = true; // it is evaluated directly in the prueba.innerHTML expression
+var todo = {
+    id: 123,
+    name: 'Pick up drycleaning',
+    completed: true // it is evaluated directly in the container.innerHTML expression
+};
+container.innerHTML = "\n<div todo='" + todo.name + "' class=\"list-group-item}\">\n    <i class=\"" + (todo.completed ? "" : "hidden") + " text-success glyphicon glyphicon-ok\"></i>\n    <span class=\"name\">" + todo.name + "</span>\n</div>\n";
+prueba.innerHTML = " \n He named his car <i class ='" + (test ? "" : "hidden") + " text-success '>The lightning</i>, because it was very fast.\n";
