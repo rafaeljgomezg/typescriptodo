@@ -1,8 +1,20 @@
-var container = document.getElementById('container');
+var array = [
+    "Pick up drycleaning", 
+    "Clean Batcave", 
+    "Save Gotham"
+];
 
-for (var x = 0; x <= 5; x++) {
-    let counter = x;
-    //counter = 1;
+
+//   ++++   Classic Way  ++++
+console.log ('CLASSIC WAY');
+for (var index in array) {
+    var value = array[index];
+    console.log(value);
 }
 
-console.log(counter);
+
+//   ++++   ES6 Way   ++++
+console.log ('ES6 Way');
+for (let value of array) { //improved way
+    console.log(value);  
+}
