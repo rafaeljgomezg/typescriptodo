@@ -1,17 +1,29 @@
-var array = [
-    "Pick up drycleaning",
-    "Clean Batcave",
-    "Save Gotham"
-];
-//   ++++   Classic Way  ++++
-console.log('CLASSIC WAY');
-for (var index in array) {
-    var value = array[index];
-    console.log(value);
+var container = document.getElementById('container');
+function Counter(el) {
+    var _this = this;
+    this.count = 0;
+    el.innerHTML = this.count;
+    // 
+    el.addEventListener('click', 
+    /* THIS WAY WE DEFINE A FUNCTION IN THE OLD WAY (wrong way)
+    function(){
+        this.count += 1; // In this case "THIS" referes to global not the defined in the function, so thi is a mistake
+        el.innerHTML=this.count;
+    });*/
+    // tHE RIGHT WAY TO DO IT ES6
+    function () {
+        _this.count += 1;
+        el.innerHTML = _this.count;
+    });
 }
-//   ++++   ES6 Way   ++++
-console.log('ES6 Way');
-for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
-    var value_1 = array_1[_i];
-    console.log(value_1);
-}
+new Counter(container);
+// FIRST WAY TO SHOW ARROW FUNCTION
+var filtered = [1, 2, 3].filter(function (x) {
+    return x > 0;
+});
+// SECOND WAY TO SHOW ARROW FUNCTION
+var filtered = [1, 2, 3].filter(function (x) {
+    return x > 0;
+});
+// THIRD WAY TO SHOW ARROW FUNCTION
+var filtered = [1, 2, 3].filter(function (x) { return x > 0; }); //just one line arrow function
