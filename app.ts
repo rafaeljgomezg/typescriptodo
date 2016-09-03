@@ -1,7 +1,8 @@
 var array = [
     "Pick up drycleaning", 
     "Clean Batcave", 
-    "Save Gotham"
+    "Save Gotham",
+    "test4"
 ];
 
 
