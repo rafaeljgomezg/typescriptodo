@@ -13,7 +13,12 @@ function calculateAge(birthYear){  // typescript determine automatically type of
 }
 
 
-function totalLength(x, y) {
-    var total = x.length + y.lengt;
+function totalLength(x, y: string) {  
+    var total:number = x.length + y.length;
     return total;
 }
+
+function totalLength1(x: any[], y: string) {  // even we can define "x" as an array object type
+    var total:number = x.length + y.length;
+    return total;
+}   
