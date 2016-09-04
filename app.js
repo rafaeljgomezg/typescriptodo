@@ -1,19 +1,12 @@
-var animal = {
-    name: "Fido",
-    species: "Dog",
-    age: calculateAge(2010),
-    speak: function () {
-        console.log('Woof!');
-    }
-};
-function calculateAge(birthYear) {
-    return Date.now() - birthYear;
-}
+//defining union types with the "|"(pipe) sign
 function totalLength(x, y) {
     var total = x.length + y.length;
-    return total;
-}
-function totalLength1(x, y) {
-    var total = x.length + y.length;
+    x.slice(0);
+    if (x instanceof Array) {
+        x.push('TypeScript');
+    }
+    if (x instanceof String) {
+        x.substr(0);
+    }
     return total;
 }

@@ -1,24 +1,18 @@
-var animal = { 
-    name: "Fido",
-    species: "Dog",
-    age: calculateAge(2010),  //typescript function object may be call it from other objects
-    speak: function() { 
-        console.log('Woof!'); 
+
+
+//defining union types with the "|"(pipe) sign
+function totalLength(x: (string | any[]), y: (string | any[])): number {
+    var total: number = x.length + y.length;
+    
+    x.slice(0)
+    
+    if(x instanceof Array) { //typeGuard sintax
+        x.push('TypeScript')
     }
-}
-
-
-function calculateAge(birthYear){  // typescript determine automatically type of object, in ths case is a number
-    return Date.now() - birthYear;
-}
-
-
-function totalLength(x, y: string) {  
-    var total:number = x.length + y.length;
+    
+    if(x instanceof String) {
+        x.substr(0)
+    }
+    
     return total;
 }
-
-function totalLength1(x: any[], y: string) {  // even we can define "x" as an array object type
-    var total:number = x.length + y.length;
-    return total;
-}   
