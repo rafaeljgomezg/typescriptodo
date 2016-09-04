@@ -1,11 +1,15 @@
-var osPrefix = 'os_';
-var support = (_a = {},
-    _a[osPrefix + 'Windows'] = isSupported('Windows'),
-    _a[osPrefix + 'iOS'] = isSupported('iOS'),
-    _a[osPrefix + 'Android'] = isSupported('Android'),
-    _a
-);
-function isSupported(os) {
-    return Math.random() >= 0.5;
+var animal = {
+    name: "Fido",
+    species: "Dog",
+    age: calculateAge(2010),
+    speak: function () {
+        console.log('Woof!');
+    }
+};
+function calculateAge(birthYear) {
+    return Date.now() - birthYear;
 }
-var _a;
+function totalLength(x, y) {
+    var total = x.length + y.lengt;
+    return total;
+}
