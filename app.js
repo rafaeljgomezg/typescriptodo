@@ -1,4 +1,3 @@
-//defining union types with the "|"(pipe) sign
 function totalLength(x, y) {
     var total = x.length + y.length;
     x.slice(0);
