@@ -1,11 +1,12 @@
-const osPrefix = 'os_';
-
-var support = {
-    [osPrefix + 'Windows']: isSupported('Windows'),
-    [osPrefix + 'iOS']: isSupported('iOS'),
-    [osPrefix + 'Android']: isSupported('Android'),
+//Function definition
+function TodoService() {
+    this.todos = [];
 }
-
-function isSupported(os) {
-    return Math.random() >= 0.5;
+//Create a method called getAll that belongs to Function TodoService
+TodoService.prototype.getAll = function() {
+    return this.todos;
 }
+//Create an object that points to function TodoService and its proptotype objects, 
+//then access to the method getAll inside TodoService.prototype
+var service = new TodoService();
+service.getAll()
